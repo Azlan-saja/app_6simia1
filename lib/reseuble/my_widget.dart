@@ -59,3 +59,63 @@ class MyTextKecil extends StatelessWidget {
     );
   }
 }
+
+class MyTextFormField extends StatelessWidget {
+  final int maxLength;
+  final String helperText;
+  final String labelText;
+  final TextInputType? keyboardType;
+  final Function(String)? onChanged;
+  final bool obscureText;
+
+  const MyTextFormField({
+    super.key,
+    required this.maxLength,
+    required this.helperText,
+    required this.labelText,
+    required this.keyboardType,
+    required this.onChanged,
+    this.obscureText = false,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      obscureText: obscureText,
+      onChanged: onChanged,
+      keyboardType: keyboardType,
+      maxLength: maxLength,
+      decoration: InputDecoration(
+        helperText: helperText,
+        labelText: labelText,
+        labelStyle: const TextStyle(
+          color: Colors.grey,
+          fontSize: 18,
+          fontWeight: FontWeight.w300,
+        ),
+      ),
+    );
+  }
+}
+
+// Container(
+// padding: const EdgeInsets.all(12),
+// margin: const EdgeInsets.only(),
+// child: TextFormField(
+// initialValue: 'John Doe',
+// maxLength: 20,
+// decoration: const InputDecoration(
+// labelText: 'Name',
+// labelStyle: TextStyle(
+// color: Colors.blueGrey,
+// ),
+// enabledBorder: UnderlineInputBorder(
+// borderSide: BorderSide(
+// color: Colors.blueGrey,
+// ),
+// ),
+// helperText: "What's your name?",
+// ),
+// onChanged: (value) {},
+// ),
+// ),
